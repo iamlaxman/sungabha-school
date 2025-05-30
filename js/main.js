@@ -1,9 +1,22 @@
 // Function to load HTML components
 async function loadComponent(elementId, componentPath) {
     try {
-        const response = await fetch(componentPath);
+        // Convert absolute path to relative path
+        const relativePath = componentPath.startsWith('/') ? componentPath.slice(1) : componentPath;
+        const response = await fetch(relativePath);
+        
+        if (!response.ok) {
+            throw new Error(`Failed to load ${relativePath}: ${response.status} ${response.statusText}`);
+        }
+        
         const html = await response.text();
-        document.getElementById(elementId).innerHTML = html;
+        const element = document.getElementById(elementId);
+        
+        if (!element) {
+            throw new Error(`Element with id '${elementId}' not found`);
+        }
+        
+        element.innerHTML = html;
         
         // Initialize Bootstrap components after header is loaded
         if (elementId === 'header') {
@@ -11,6 +24,19 @@ async function loadComponent(elementId, componentPath) {
         }
     } catch (error) {
         console.error(`Error loading component ${componentPath}:`, error);
+        // Show a minimal fallback for critical navigation
+        if (elementId === 'header') {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = `
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container">
+                            <a class="navbar-brand" href="index.html">Sungabha</a>
+                            <a class="btn btn-primary" href="index.html">Home</a>
+                        </div>
+                    </nav>`;
+            }
+        }
     }
 }
 
@@ -82,8 +108,8 @@ function initializeCounters() {
 // Initialize components when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Load header and footer components
-    loadComponent('header', '/components/header.html');
-    loadComponent('footer', '/components/footer.html');
+    loadComponent('header', 'components/header.html');
+    loadComponent('footer', 'components/footer.html');
 
     // Initialize other features
     initializeScrollAnimations();

@@ -1,12 +1,21 @@
+// Function to resolve paths relative to the current page
+function resolveComponentPath(componentPath) {
+    // Get the current page's path depth
+    const pathDepth = window.location.pathname.split('/').length - 2;
+    // If we're in a subdirectory, add ../ for each level
+    const prefix = pathDepth > 0 ? '../'.repeat(pathDepth) : '';
+    return prefix + componentPath;
+}
+
 // Function to load HTML components
 async function loadComponent(elementId, componentPath) {
     try {
-        // Convert absolute path to relative path
-        const relativePath = componentPath.startsWith('/') ? componentPath.slice(1) : componentPath;
-        const response = await fetch(relativePath);
+        // Resolve the correct path based on current page location
+        const resolvedPath = resolveComponentPath(componentPath);
+        const response = await fetch(resolvedPath);
         
         if (!response.ok) {
-            throw new Error(`Failed to load ${relativePath}: ${response.status} ${response.statusText}`);
+            throw new Error(`Failed to load ${resolvedPath}: ${response.status} ${response.statusText}`);
         }
         
         const html = await response.text();
@@ -21,6 +30,8 @@ async function loadComponent(elementId, componentPath) {
         // Initialize Bootstrap components after header is loaded
         if (elementId === 'header') {
             initializeBootstrapComponents();
+            // Fix component links based on current page depth
+            fixComponentLinks(element);
         }
     } catch (error) {
         console.error(`Error loading component ${componentPath}:`, error);
@@ -37,6 +48,22 @@ async function loadComponent(elementId, componentPath) {
                     </nav>`;
             }
         }
+    }
+}
+
+// Function to fix component links based on current page depth
+function fixComponentLinks(element) {
+    const pathDepth = window.location.pathname.split('/').length - 2;
+    if (pathDepth > 0) {
+        const prefix = '../'.repeat(pathDepth);
+        element.querySelectorAll('a[href], img[src]').forEach(el => {
+            if (el.hasAttribute('href') && !el.href.startsWith('http') && !el.href.startsWith('mailto:') && !el.href.startsWith('tel:')) {
+                el.href = prefix + el.getAttribute('href');
+            }
+            if (el.hasAttribute('src') && !el.src.startsWith('http')) {
+                el.src = prefix + el.getAttribute('src');
+            }
+        });
     }
 }
 

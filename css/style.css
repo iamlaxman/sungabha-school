@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* Custom styles for Bootstrap navbar */
 .navbar {
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
@@ -84,7 +83,7 @@
         text-decoration: none !important;
         color: #000 !important;
     }
-=======
+} 
 /* Custom styles for Bootstrap navbar */
 .navbar {
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
@@ -170,5 +169,4 @@
         text-decoration: none !important;
         color: #000 !important;
     }
->>>>>>> cdecdd94c9abc57177ce50af1d8ca9cff1a0ba87
 } 

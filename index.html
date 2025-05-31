@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Sungabha Awasiya Ma Vi - A leading educational institution dedicated to excellence and holistic development of students in Nepal">
+  <meta name="keywords" content="Sungabha School, Education Nepal, School Kathmandu, Best School Nepal">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sungabhaedu.com/">
+  <meta property="og:title" content="Sungabha Awasiya Ma Vi - Excellence in Education">
+  <meta property="og:description" content="A leading educational institution dedicated to excellence and holistic development of students in Nepal">
+  <meta property="og:image" content="https://sungabhaedu.com/images/building.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://sungabhaedu.com/">
+  <meta property="twitter:title" content="Sungabha Awasiya Ma Vi - Excellence in Education">
+  <meta property="twitter:description" content="A leading educational institution dedicated to excellence and holistic development of students in Nepal">
+  <meta property="twitter:image" content="https://sungabhaedu.com/images/building.jpg">
+
+  <title>Sungabha Awasiya Ma Vi - Excellence in Education</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Animations for headings */
+    @keyframes slideInUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-heading {
+      animation: slideInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .animate-subtext {
+      animation: fadeIn 1s ease-out 0.3s forwards;
+      opacity: 0;
+    }
+
+    /* Stats styling */
+    .stats-icon {
+      font-size: 2.5rem;
+      color: var(--bs-primary);
+      margin-bottom: 1rem;
+    }
+    .counter {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--bs-primary);
+    }
+    .stats-card {
+      transition: transform 0.3s ease;
+    }
+    .stats-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Date display styling */
+    .dual-date {
+      font-size: 0.9rem;
+      color: var(--bs-secondary);
+    }
+    .nepali-date {
+      font-family: 'Noto Sans Devanagari', sans-serif;
+    }
+  </style>
+  <!-- Google Fonts for Nepali text -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Component -->
+  <div id="header"></div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h1 class="display-4 fw-bold mb-4">Welcome To Sungabha Awasiya Ma Vi</h1>
+          <p class="lead mb-4 animate-subtext">Established in 1994 (2050 BS), we are a leading private educational institution in Urlabari-5, Morang, providing quality education from PlayGroup to Grade 12. NEB affiliated and Ministry of Education approved.</p>
+          <div class="d-flex gap-3 animate-subtext">
+            <a href="admission.html" class="btn btn-primary btn-lg">Apply Now</a>
+            <a href="about.html" class="btn btn-outline-secondary btn-lg">Learn More</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <img src="images/building.jpg" alt="Sungabha Awasiya Ma Vi building" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-5 bg-light stats-section">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12 mb-5">
+          <h2 class="display-5 fw-bold mb-4 animate-heading">Our Achievements</h2>
+          <p class="lead text-muted animate-subtext">Excellence in Education Since 1994</p>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-4">
+          <div class="card border-0 bg-transparent stats-card">
+            <div class="card-body">
+              <i class="bi bi-mortarboard-fill stats-icon"></i>
+              <h2 class="counter" data-target="2500">0</h2>
+              <p class="text-muted">Students</p>
+        </div>
+      </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-4">
+          <div class="card border-0 bg-transparent stats-card">
+            <div class="card-body">
+              <i class="bi bi-person-workspace stats-icon"></i>
+              <h2 class="counter" data-target="100">0</h2>
+              <p class="text-muted">Teachers</p>
+        </div>
+      </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-4">
+          <div class="card border-0 bg-transparent stats-card">
+            <div class="card-body">
+              <i class="bi bi-calendar3 stats-icon"></i>
+              <h2 class="counter" data-target="29">0</h2>
+              <p class="text-muted">Years of Excellence</p>
+          </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-4">
+          <div class="card border-0 bg-transparent stats-card">
+            <div class="card-body">
+              <i class="bi bi-graph-up-arrow stats-icon"></i>
+              <h2 class="counter" data-target="95">0</h2>
+              <p class="text-muted">Success Rate</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Programs -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold animate-heading">Our Programs</h2>
+        <p class="lead text-muted animate-subtext">Comprehensive educational programs from early childhood to higher secondary education</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1587691592099-24045742c181?w=800&h=500&crop=entropy&fit=crop" class="card-img-top" alt="Early Education">
+            <div class="card-body">
+              <h3 class="card-title h5">Early Education</h3>
+              <p class="card-text">Nurturing young minds through our PlayGroup to Primary level programs with modern teaching methods.</p>
+              <a href="programs.html#early-education" class="btn btn-outline-primary">Learn More</a>
+    </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=500&crop=entropy&fit=crop" class="card-img-top" alt="Secondary Education">
+            <div class="card-body">
+              <h3 class="card-title h5">Secondary Education (SEE)</h3>
+              <p class="card-text">Comprehensive secondary education program preparing students for SEE with excellent track record.</p>
+              <a href="programs.html#secondary" class="btn btn-outline-primary">Learn More</a>
+      </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=500&crop=entropy&fit=crop" class="card-img-top" alt="+2 Science">
+            <div class="card-body">
+              <h3 class="card-title h5">+2 Science</h3>
+              <p class="card-text">NEB-affiliated higher secondary program in Science stream with experienced faculty and well-equipped labs.</p>
+              <a href="programs.html#science" class="btn btn-outline-primary">Learn More</a>
+      </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=500&crop=entropy&fit=crop" class="card-img-top" alt="+2 Management">
+            <div class="card-body">
+              <h3 class="card-title h5">+2 Management</h3>
+              <p class="card-text">NEB-affiliated higher secondary program in Management stream with experienced faculty.</p>
+              <a href="programs.html#management" class="btn btn-outline-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Facilities Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold animate-heading">Our Facilities</h2>
+        <p class="lead text-muted animate-subtext">Modern facilities to support holistic development</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+          <div class="card h-100 border-0 bg-transparent">
+            <div class="card-body text-center">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&crop=entropy&fit=crop" class="img-fluid rounded mb-3" alt="Computer Lab">
+              <h3 class="h5">Computer Lab</h3>
+              <p class="small text-muted">Modern computer lab with latest technology</p>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card h-100 border-0 bg-transparent">
+            <div class="card-body text-center">
+              <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=300&crop=entropy&fit=crop" class="img-fluid rounded mb-3" alt="Science Lab">
+              <h3 class="h5">Science Lab</h3>
+              <p class="small text-muted">Well-equipped science laboratory</p>
+      </div>
+    </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card h-100 border-0 bg-transparent">
+            <div class="card-body text-center">
+              <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=400&h=300&crop=entropy&fit=crop" class="img-fluid rounded mb-3" alt="Library">
+              <h3 class="h5">Library</h3>
+              <p class="small text-muted">Extensive collection of books and resources</p>
+        </div>
+      </div>
+    </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card h-100 border-0 bg-transparent">
+            <div class="card-body text-center">
+              <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&h=300&crop=entropy&fit=crop" class="img-fluid rounded mb-3" alt="ECA Activities">
+              <h3 class="h5">ECA</h3>
+              <p class="small text-muted">Music, Dance, Sports, and Tours</p>
+      </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest News & Events -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold animate-heading">Latest News & Events</h2>
+        <p class="lead text-muted animate-subtext">Stay updated with the latest happenings at Sungabha Awasiya Ma Vi.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="dual-date mb-2">
+                <span class="nepali-date">बैशाख २०८२</span> / <span>April 2025</span>
+        </div>
+              <h3 class="card-title h5">Annual Sports Meet 2082</h3>
+              <p class="card-text">Join us for our annual sports meet featuring various athletic competitions and team events.</p>
+              <a href="news-events.html" class="btn btn-outline-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="dual-date mb-2">
+                <span class="nepali-date">चैत्र २०८१</span> / <span>March 2025</span>
+  </div>
+              <h3 class="card-title h5">Science Fair 2082</h3>
+              <p class="card-text">Experience innovative projects and experiments at our annual science fair.</p>
+              <a href="news-events.html" class="btn btn-outline-primary">Read More</a>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Component -->
+  <div id="footer"></div>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="js/main.js"></script>
+  <script>
+    // Counter animation function
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000; // 2 seconds
+      const step = target / (duration / 16); // 60fps
+      let current = 0;
+      
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          element.textContent = target;
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.round(current);
+        }
+      }, 16);
+    }
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // For stats counters
+          const counters = entry.target.querySelectorAll('.counter');
+          if (counters.length) {
+            counters.forEach(counter => animateCounter(counter));
+          }
+          
+          // For animated headings
+          const animatedElements = entry.target.querySelectorAll('.animate-heading, .animate-subtext');
+          if (animatedElements.length) {
+            animatedElements.forEach(el => el.style.animationPlayState = 'running');
+          }
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    // Observe all sections and animated elements
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
+</html>

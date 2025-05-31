@@ -1,31 +1,37 @@
 // Function to resolve paths relative to the current page
 function resolveComponentPath(componentPath) {
-    // Get the current page's path depth
-    const pathDepth = window.location.pathname.split('/').length - 2;
-    // If we're in a subdirectory, add ../ for each level
-    const prefix = pathDepth > 0 ? '../'.repeat(pathDepth) : '';
-    return prefix + componentPath;
+    // Get the base URL - this will work for both local and GitHub Pages
+    const baseUrl = window.location.pathname.endsWith('.html')
+        ? window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1)
+        : window.location.pathname;
+    
+    // Remove any leading slash from the base URL
+    const cleanBaseUrl = baseUrl.startsWith('/') ? baseUrl.substring(1) : baseUrl;
+    
+    // Combine the base URL with the component path
+    return cleanBaseUrl + componentPath;
 }
 
 // Function to fix image and link paths in a component
-function fixComponentPaths(element, pathDepth) {
-    if (pathDepth > 0) {
-        const prefix = '../'.repeat(pathDepth);
-        element.querySelectorAll('a[href], img[src]').forEach(el => {
-            if (el.hasAttribute('href') && !el.href.startsWith('http') && !el.href.startsWith('mailto:') && !el.href.startsWith('tel:')) {
-                const href = el.getAttribute('href');
-                if (!href.startsWith('../')) {
-                    el.href = prefix + href;
-                }
+function fixComponentPaths(element) {
+    const baseUrl = window.location.pathname.endsWith('.html')
+        ? window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1)
+        : window.location.pathname;
+    
+    element.querySelectorAll('a[href], img[src]').forEach(el => {
+        if (el.hasAttribute('href') && !el.href.startsWith('http') && !el.href.startsWith('mailto:') && !el.href.startsWith('tel:')) {
+            const href = el.getAttribute('href');
+            if (!href.startsWith('/') && !href.startsWith('../')) {
+                el.href = baseUrl + href;
             }
-            if (el.hasAttribute('src') && !el.src.startsWith('http')) {
-                const src = el.getAttribute('src');
-                if (!src.startsWith('../')) {
-                    el.src = prefix + src;
-                }
+        }
+        if (el.hasAttribute('src') && !el.src.startsWith('http')) {
+            const src = el.getAttribute('src');
+            if (!src.startsWith('/') && !src.startsWith('../')) {
+                el.src = baseUrl + src;
             }
-        });
-    }
+        }
+    });
 }
 
 // Function to load HTML components
@@ -54,8 +60,7 @@ async function loadComponent(elementId, componentPath) {
         }
 
         // Fix paths in the loaded component
-        const pathDepth = window.location.pathname.split('/').length - 2;
-        fixComponentPaths(element, pathDepth);
+        fixComponentPaths(element);
         
     } catch (error) {
         console.error(`Error loading component ${componentPath}:`, error);

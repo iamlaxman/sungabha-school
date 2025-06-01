@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -29,6 +29,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -37,14 +39,14 @@
   <div id="header"></div>
 
   <!-- Hero Section -->
-  <section class="hero-section bg-light">
+  <section class="hero-section bg-light" data-aos="fade-up" data-aos-duration="1000">
     <div class="container py-5">
       <div class="row align-items-center">
         <div class="col-lg-6">
           <h1 class="display-4 fw-bold mb-4">Our Academic Programs</h1>
           <p class="lead mb-4">Discover our comprehensive educational programs designed to nurture excellence and foster holistic development.</p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
           <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&h=400&crop=entropy&fit=crop" alt="Students in classroom" class="img-fluid rounded shadow">
         </div>
       </div>
@@ -52,14 +54,14 @@
   </section>
 
   <!-- Programs Section -->
-  <section class="py-5">
+  <section class="py-5" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
       <!-- Early Education -->
-      <div class="row align-items-center mb-5" id="early-education">
-        <div class="col-lg-6 mb-4 mb-lg-0">
+      <div class="row align-items-center mb-5" id="early-education" data-aos="fade-up">
+        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
           <img src="https://images.unsplash.com/photo-1587691592099-24045742c181?w=800&h=500&crop=entropy&fit=crop" alt="Early Education" class="img-fluid rounded shadow">
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
           <h2 class="h3 mb-4">Early Education Program</h2>
           <p>Our early education program focuses on developing fundamental skills and fostering a love for learning in young children. From PlayGroup to Primary level, we provide:</p>
           <ul class="list-unstyled">
@@ -72,11 +74,11 @@
       </div>
 
       <!-- Secondary Education -->
-      <div class="row align-items-center mb-5" id="secondary">
-        <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+      <div class="row align-items-center mb-5" id="secondary" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left" data-aos-delay="100">
           <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=500&crop=entropy&fit=crop" alt="Secondary Education" class="img-fluid rounded shadow">
         </div>
-        <div class="col-lg-6 order-lg-1">
+        <div class="col-lg-6 order-lg-1" data-aos="fade-right" data-aos-delay="200">
           <h2 class="h3 mb-4">Secondary Education (SEE)</h2>
           <p>Our secondary education program prepares students for the Secondary Education Examination (SEE) with:</p>
           <ul class="list-unstyled">
@@ -89,11 +91,11 @@
       </div>
 
       <!-- +2 Science -->
-      <div class="row align-items-center mb-5" id="science">
-        <div class="col-lg-6 mb-4 mb-lg-0">
+      <div class="row align-items-center mb-5" id="science" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
           <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=500&crop=entropy&fit=crop" alt="+2 Science" class="img-fluid rounded shadow">
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
           <h2 class="h3 mb-4">+2 Science Program</h2>
           <p>Our Science stream offers comprehensive preparation for future careers in science and technology:</p>
           <ul class="list-unstyled">
@@ -106,11 +108,11 @@
       </div>
 
       <!-- +2 Management -->
-      <div class="row align-items-center" id="management">
-        <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+      <div class="row align-items-center" id="management" data-aos="fade-up" data-aos-delay="300">
+        <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left" data-aos-delay="100">
           <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=500&crop=entropy&fit=crop" alt="+2 Management" class="img-fluid rounded shadow">
         </div>
-        <div class="col-lg-6 order-lg-1">
+        <div class="col-lg-6 order-lg-1" data-aos="fade-right" data-aos-delay="200">
           <h2 class="h3 mb-4">+2 Management Program</h2>
           <p>Our Management stream prepares students for successful careers in business and administration:</p>
           <ul class="list-unstyled">
@@ -124,12 +126,92 @@
     </div>
   </section>
 
+  <!-- Program Features Section -->
+  <section class="py-5 bg-light" data-aos="fade-up" data-aos-duration="800">
+    <div class="container">
+      <h2 class="display-6 fw-bold mb-5 text-center">Why Choose Our Programs?</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+              <div class="rounded-circle bg-primary bg-opacity-10 p-3 d-inline-flex mb-3">
+                <i class="bi bi-mortarboard-fill text-primary fs-1"></i>
+              </div>
+              <h3 class="h5">Qualified Faculty</h3>
+              <p class="text-muted">Our programs are taught by highly qualified and experienced educators dedicated to student success.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+              <div class="rounded-circle bg-primary bg-opacity-10 p-3 d-inline-flex mb-3">
+                <i class="bi bi-book-fill text-primary fs-1"></i>
+              </div>
+              <h3 class="h5">Modern Curriculum</h3>
+              <p class="text-muted">Our curriculum integrates modern teaching methodologies with traditional values for comprehensive learning.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+              <div class="rounded-circle bg-primary bg-opacity-10 p-3 d-inline-flex mb-3">
+                <i class="bi bi-laptop-fill text-primary fs-1"></i>
+              </div>
+              <h3 class="h5">Modern Facilities</h3>
+              <p class="text-muted">Access to state-of-the-art facilities including labs, libraries, and digital learning resources.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer Component -->
   <div id="footer"></div>
 
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Custom JavaScript -->
   <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+      
+      // GSAP animations for list items
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Animate check list items
+      document.querySelectorAll('.list-unstyled li').forEach((item, i) => {
+        const parent = item.closest('.row');
+        if (parent) {
+          gsap.from(item, {
+            x: -20,
+            opacity: 0,
+            duration: 0.4,
+            scrollTrigger: {
+              trigger: parent,
+              start: 'top 80%',
+              toggleActions: 'play none none none'
+            },
+            delay: i * 0.1 + 0.3
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html> 

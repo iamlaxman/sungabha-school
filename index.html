@@ -29,7 +29,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* Animations for headings */
@@ -62,16 +65,16 @@
     /* Stats styling */
     .stats-icon {
       font-size: 2.5rem;
-      color: var(--bs-primary);
+      color: var(--school-navy);
       margin-bottom: 1rem;
     }
     .counter {
       font-size: 2.5rem;
       font-weight: bold;
-      color: var(--bs-primary);
+      color: var(--school-navy);
     }
     .stats-card {
-      transition: transform 0.3s ease;
+      transition: transform var(--transition-speed) var(--transition-function);
     }
     .stats-card:hover {
       transform: translateY(-5px);
@@ -80,7 +83,7 @@
     /* Date display styling */
     .dual-date {
       font-size: 0.9rem;
-      color: var(--bs-secondary);
+      color: var(--text-secondary);
     }
     .nepali-date {
       font-family: 'Noto Sans Devanagari', sans-serif;
@@ -94,18 +97,18 @@
   <div id="header"></div>
 
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section class="hero-section" data-aos="fade-up" data-aos-duration="1000">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 mb-4 mb-lg-0">
           <h1 class="display-4 fw-bold mb-4">Welcome To Sungabha Awasiya Ma Vi</h1>
           <p class="lead mb-4 animate-subtext">Established in 1994 (2050 BS), we are a leading private educational institution in Urlabari-5, Morang, providing quality education from PlayGroup to Grade 12. NEB affiliated and Ministry of Education approved.</p>
           <div class="d-flex gap-3 animate-subtext">
-            <a href="admission.html" class="btn btn-primary btn-lg">Apply Now</a>
+            <a href="admission.html" class="btn btn-navy btn-lg">Apply Now</a>
             <a href="about.html" class="btn btn-outline-secondary btn-lg">Learn More</a>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
           <img src="images/building.jpg" alt="Sungabha Awasiya Ma Vi building" class="img-fluid rounded shadow">
         </div>
       </div>
@@ -113,14 +116,14 @@
   </section>
 
   <!-- Stats Section -->
-  <section class="py-5 bg-light stats-section">
+  <section class="py-5 bg-light stats-section" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
       <div class="row text-center">
         <div class="col-12 mb-5">
           <h2 class="display-5 fw-bold mb-4 animate-heading">Our Achievements</h2>
           <p class="lead text-muted animate-subtext">Excellence in Education Since 1994</p>
         </div>
-        <div class="col-sm-6 col-lg-3 mb-4">
+        <div class="col-sm-6 col-lg-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
           <div class="card border-0 bg-transparent stats-card">
             <div class="card-body">
               <i class="bi bi-mortarboard-fill stats-icon"></i>
@@ -129,7 +132,7 @@
         </div>
       </div>
         </div>
-        <div class="col-sm-6 col-lg-3 mb-4">
+        <div class="col-sm-6 col-lg-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
           <div class="card border-0 bg-transparent stats-card">
             <div class="card-body">
               <i class="bi bi-person-workspace stats-icon"></i>
@@ -138,7 +141,7 @@
         </div>
       </div>
         </div>
-        <div class="col-sm-6 col-lg-3 mb-4">
+        <div class="col-sm-6 col-lg-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
           <div class="card border-0 bg-transparent stats-card">
             <div class="card-body">
               <i class="bi bi-calendar3 stats-icon"></i>
@@ -147,7 +150,7 @@
           </div>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-3 mb-4">
+        <div class="col-sm-6 col-lg-3 mb-4" data-aos="zoom-in" data-aos-delay="400">
           <div class="card border-0 bg-transparent stats-card">
             <div class="card-body">
               <i class="bi bi-graph-up-arrow stats-icon"></i>
@@ -161,14 +164,14 @@
   </section>
 
   <!-- Featured Programs -->
-  <section class="py-5">
+  <section class="py-5" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="display-5 fw-bold animate-heading">Our Programs</h2>
         <p class="lead text-muted animate-subtext">Comprehensive educational programs from early childhood to higher secondary education</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
           <div class="card h-100">
             <img src="https://images.unsplash.com/photo-1587691592099-24045742c181?w=800&h=500&crop=entropy&fit=crop" class="card-img-top" alt="Early Education">
             <div class="card-body">
@@ -178,7 +181,7 @@
     </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
           <div class="card h-100">
             <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=500&crop=entropy&fit=crop" class="card-img-top" alt="Secondary Education">
             <div class="card-body">
@@ -188,7 +191,7 @@
       </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
           <div class="card h-100">
             <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=500&crop=entropy&fit=crop" class="card-img-top" alt="+2 Science">
             <div class="card-body">
@@ -198,7 +201,7 @@
       </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
           <div class="card h-100">
             <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=500&crop=entropy&fit=crop" class="card-img-top" alt="+2 Management">
             <div class="card-body">
@@ -213,14 +216,14 @@
 </section>
 
   <!-- Facilities Section -->
-  <section class="py-5 bg-light">
+  <section class="py-5 bg-light" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="display-5 fw-bold animate-heading">Our Facilities</h2>
         <p class="lead text-muted animate-subtext">Modern facilities to support holistic development</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6" data-aos="fade-right" data-aos-delay="100">
           <div class="card h-100 border-0 bg-transparent">
             <div class="card-body text-center">
               <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&crop=entropy&fit=crop" class="img-fluid rounded mb-3" alt="Computer Lab">
@@ -229,7 +232,7 @@
             </div>
         </div>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6" data-aos="fade-right" data-aos-delay="200">
           <div class="card h-100 border-0 bg-transparent">
             <div class="card-body text-center">
               <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=300&crop=entropy&fit=crop" class="img-fluid rounded mb-3" alt="Science Lab">
@@ -238,7 +241,7 @@
       </div>
     </div>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6" data-aos="fade-left" data-aos-delay="300">
           <div class="card h-100 border-0 bg-transparent">
             <div class="card-body text-center">
               <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=400&h=300&crop=entropy&fit=crop" class="img-fluid rounded mb-3" alt="Library">
@@ -247,7 +250,7 @@
         </div>
       </div>
     </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6" data-aos="fade-left" data-aos-delay="400">
           <div class="card h-100 border-0 bg-transparent">
             <div class="card-body text-center">
               <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&h=300&crop=entropy&fit=crop" class="img-fluid rounded mb-3" alt="ECA Activities">
@@ -261,14 +264,14 @@
   </section>
 
   <!-- Latest News & Events -->
-  <section class="py-5 bg-light">
+  <section class="py-5 bg-light" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="display-5 fw-bold animate-heading">Latest News & Events</h2>
         <p class="lead text-muted animate-subtext">Stay updated with the latest happenings at Sungabha Awasiya Ma Vi.</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-6">
+        <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
           <div class="card h-100">
             <div class="card-body">
               <div class="dual-date mb-2">
@@ -280,7 +283,7 @@
         </div>
       </div>
     </div>
-        <div class="col-md-6">
+        <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
           <div class="card h-100">
             <div class="card-body">
               <div class="dual-date mb-2">
@@ -299,55 +302,54 @@
   <!-- Footer Component -->
   <div id="footer"></div>
 
+  <!-- Welcome Modal -->
+  <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="welcomeModalLabel">Welcome to Sungabha Awasiya Ma Vi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="images/logo.png" alt="School Logo" class="img-fluid mb-3" style="max-width: 100px;">
+          <h3 class="h4 mb-3">Excellence in Education Since 1994</h3>
+          <p>Thank you for visiting our website. Explore our programs, facilities, and more to learn about our commitment to quality education.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-gold" data-bs-dismiss="modal">Start Exploring</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Custom JavaScript -->
   <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
   <script>
-    // Counter animation function
-    function animateCounter(element) {
-      const target = parseInt(element.getAttribute('data-target'));
-      const duration = 2000; // 2 seconds
-      const step = target / (duration / 16); // 60fps
-      let current = 0;
-      
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          element.textContent = target;
-          clearInterval(timer);
-        } else {
-          element.textContent = Math.round(current);
-        }
-      }, 16);
-    }
-
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // For stats counters
-          const counters = entry.target.querySelectorAll('.counter');
-          if (counters.length) {
-            counters.forEach(counter => animateCounter(counter));
-          }
-          
-          // For animated headings
-          const animatedElements = entry.target.querySelectorAll('.animate-heading, .animate-subtext');
-          if (animatedElements.length) {
-            animatedElements.forEach(el => el.style.animationPlayState = 'running');
-          }
-          
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    // Observe all sections and animated elements
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
       });
+      
+      // Show welcome modal for first-time visitors
+      if (!sessionStorage.getItem('welcomeShown')) {
+        setTimeout(() => {
+          const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+          welcomeModal.show();
+          sessionStorage.setItem('welcomeShown', 'true');
+        }, 1500);
+      }
     });
   </script>
 </body>

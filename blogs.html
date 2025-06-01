@@ -29,6 +29,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -59,10 +61,21 @@
       height: 40px;
       border-radius: 50%;
       margin-right: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .blog-author:hover img {
+      transform: scale(1.1);
     }
     
     .blog-featured {
       border-left: 4px solid #0d6efd;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .blog-featured:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
     
     .blog-search {
@@ -79,6 +92,11 @@
     
     .blog-search input {
       padding-left: 2.5rem;
+      transition: box-shadow 0.3s ease;
+    }
+    
+    .blog-search input:focus {
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     }
   </style>
 </head>
@@ -87,14 +105,14 @@
   <div id="header"></div>
 
   <!-- Hero Section -->
-  <section class="hero-section bg-light">
+  <section class="hero-section bg-light" data-aos="fade-up" data-aos-duration="1000">
     <div class="container py-5">
       <div class="row align-items-center">
         <div class="col-lg-6">
           <h1 class="display-4 fw-bold mb-4">Educational Blogs</h1>
           <p class="lead mb-4">Explore our collection of educational articles, insights, and student success stories.</p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
           <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&h=400&crop=entropy&fit=crop" alt="Educational Blogs" class="img-fluid rounded shadow">
         </div>
       </div>
@@ -102,13 +120,13 @@
   </section>
 
   <!-- Blog Content Section -->
-  <section class="py-5">
+  <section class="py-5" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
       <div class="row">
         <!-- Main Content -->
         <div class="col-lg-8">
           <!-- Featured Blog -->
-          <div class="card mb-5 blog-featured">
+          <div class="card mb-5 blog-featured" data-aos="fade-up">
             <div class="row g-0">
               <div class="col-md-5">
                 <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&crop=entropy&fit=crop" class="img-fluid rounded-start h-100 object-fit-cover" alt="Modern Teaching Methods">
@@ -138,7 +156,7 @@
           <!-- Regular Blogs -->
           <div class="row g-4 mb-5">
             <!-- Blog 1 -->
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
               <div class="card h-100">
                 <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&h=400&crop=entropy&fit=crop" class="card-img-top" alt="STEM Education">
                 <div class="card-body">
@@ -156,7 +174,7 @@
             </div>
 
             <!-- Blog 2 -->
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
               <div class="card h-100">
                 <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&h=400&crop=entropy&fit=crop" class="card-img-top" alt="Mental Health">
                 <div class="card-body">
@@ -174,7 +192,7 @@
             </div>
 
             <!-- Blog 3 -->
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
               <div class="card h-100">
                 <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&h=400&crop=entropy&fit=crop" class="card-img-top" alt="Extracurricular Activities">
                 <div class="card-body">
@@ -192,14 +210,14 @@
             </div>
 
             <!-- Blog 4 -->
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
               <div class="card h-100">
                 <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=400&crop=entropy&fit=crop" class="card-img-top" alt="Parent Involvement">
                 <div class="card-body">
                   <span class="blog-tag">Parents</span>
                   <span class="blog-tag">Community</span>
-                  <h3 class="h5 card-title mt-2">Strengthening Parent-School Partnerships</h3>
-                  <p class="card-text">Effective strategies for involving parents in their children's education and building strong school communities.</p>
+                  <h3 class="h5 card-title mt-2">The Importance of Parent Involvement in Education</h3>
+                  <p class="card-text">How parent-teacher collaboration creates a supportive learning environment for students.</p>
                   <div class="d-flex align-items-center mb-3">
                     <span class="text-muted small me-3"><i class="bi bi-calendar3 me-1"></i> February 20, 2024</span>
                     <span class="text-muted small"><i class="bi bi-clock me-1"></i> 5 min read</span>
@@ -211,26 +229,27 @@
           </div>
 
           <!-- Pagination -->
-          <nav aria-label="Blog pagination">
+          <nav aria-label="Blog pagination" class="my-5" data-aos="fade-up">
             <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+              </li>
               <li class="page-item active"><a class="page-link" href="#">1</a></li>
               <li class="page-item"><a class="page-link" href="#">2</a></li>
               <li class="page-item"><a class="page-link" href="#">3</a></li>
               <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
+                <a class="page-link" href="#">Next</a>
               </li>
             </ul>
           </nav>
         </div>
 
         <!-- Sidebar -->
-        <div class="col-lg-4">
+        <div class="col-lg-4" data-aos="fade-left" data-aos-delay="200">
           <!-- Search -->
           <div class="card mb-4">
             <div class="card-body">
-              <h3 class="h5 card-title mb-3">Search Blogs</h3>
+              <h3 class="h5 mb-3">Search Blogs</h3>
               <div class="blog-search">
                 <i class="bi bi-search"></i>
                 <input type="text" class="form-control" placeholder="Search articles...">
@@ -239,96 +258,79 @@
           </div>
 
           <!-- Categories -->
-          <div class="card mb-4">
+          <div class="card mb-4" data-aos="fade-up" data-aos-delay="300">
             <div class="card-body">
-              <h3 class="h5 card-title mb-3">Categories</h3>
+              <h3 class="h5 mb-3">Categories</h3>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   Education
                   <span class="badge bg-primary rounded-pill">12</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Teaching Methods
+                  Student Life
                   <span class="badge bg-primary rounded-pill">8</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Student Development
+                  Teaching Methods
                   <span class="badge bg-primary rounded-pill">6</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Parenting
-                  <span class="badge bg-primary rounded-pill">5</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   Technology
                   <span class="badge bg-primary rounded-pill">4</span>
                 </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Parenting
+                  <span class="badge bg-primary rounded-pill">3</span>
+                </li>
               </ul>
             </div>
           </div>
 
-          <!-- Popular Posts -->
-          <div class="card mb-4">
+          <!-- Recent Posts -->
+          <div class="card mb-4" data-aos="fade-up" data-aos-delay="400">
             <div class="card-body">
-              <h3 class="h5 card-title mb-3">Popular Posts</h3>
-              <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action border-0 px-0">
-                  <div class="d-flex">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=100&h=100&crop=entropy&fit=crop" class="rounded" width="70" height="70" alt="Teaching Methods">
-                    <div class="ms-3">
-                      <h6 class="mb-1">Modern Teaching Methods in the Digital Age</h6>
-                      <small class="text-muted">March 15, 2024</small>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action border-0 px-0">
-                  <div class="d-flex">
-                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=100&h=100&crop=entropy&fit=crop" class="rounded" width="70" height="70" alt="STEM Education">
-                    <div class="ms-3">
-                      <h6 class="mb-1">The Importance of STEM Education in Schools</h6>
-                      <small class="text-muted">March 10, 2024</small>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action border-0 px-0">
-                  <div class="d-flex">
-                    <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=100&h=100&crop=entropy&fit=crop" class="rounded" width="70" height="70" alt="Mental Health">
-                    <div class="ms-3">
-                      <h6 class="mb-1">Supporting Student Mental Health in Schools</h6>
-                      <small class="text-muted">March 5, 2024</small>
-                    </div>
-                  </div>
-                </a>
+              <h3 class="h5 mb-3">Recent Posts</h3>
+              <div class="d-flex mb-3">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=100&h=100&crop=entropy&fit=crop" class="rounded" width="60" height="60" alt="Recent Post">
+                <div class="ms-3">
+                  <h4 class="h6 mb-1">Modern Teaching Methods in the Digital Age</h4>
+                  <p class="text-muted small mb-0">March 15, 2024</p>
+                </div>
+              </div>
+              <div class="d-flex mb-3">
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=100&h=100&crop=entropy&fit=crop" class="rounded" width="60" height="60" alt="Recent Post">
+                <div class="ms-3">
+                  <h4 class="h6 mb-1">The Importance of STEM Education in Schools</h4>
+                  <p class="text-muted small mb-0">March 10, 2024</p>
+                </div>
+              </div>
+              <div class="d-flex">
+                <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=100&h=100&crop=entropy&fit=crop" class="rounded" width="60" height="60" alt="Recent Post">
+                <div class="ms-3">
+                  <h4 class="h6 mb-1">Supporting Student Mental Health in Schools</h4>
+                  <p class="text-muted small mb-0">March 5, 2024</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Subscribe -->
-          <div class="card">
+          <!-- Tags -->
+          <div class="card" data-aos="fade-up" data-aos-delay="500">
             <div class="card-body">
-              <h3 class="h5 card-title mb-3">Subscribe to Our Blog</h3>
-              <p class="card-text">Get the latest educational insights delivered to your inbox.</p>
-              <form>
-                <div class="mb-3">
-                  <input type="email" class="form-control" placeholder="Your email address">
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Subscribe</button>
-              </form>
+              <h3 class="h5 mb-3">Popular Tags</h3>
+              <div class="d-flex flex-wrap">
+                <a href="#" class="blog-tag mb-2">Education</a>
+                <a href="#" class="blog-tag mb-2">STEM</a>
+                <a href="#" class="blog-tag mb-2">Technology</a>
+                <a href="#" class="blog-tag mb-2">Wellness</a>
+                <a href="#" class="blog-tag mb-2">Students</a>
+                <a href="#" class="blog-tag mb-2">Teaching</a>
+                <a href="#" class="blog-tag mb-2">Learning</a>
+                <a href="#" class="blog-tag mb-2">Parents</a>
+                <a href="#" class="blog-tag mb-2">Community</a>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="display-6 fw-bold mb-4">Share Your Knowledge</h2>
-          <p class="lead mb-4">Are you an educator or expert with insights to share? We welcome guest contributions to our blog.</p>
-          <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
         </div>
       </div>
     </div>
@@ -339,7 +341,61 @@
 
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Custom JavaScript -->
   <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+      
+      // GSAP animations for blog cards
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Animate blog tags on hover
+      document.querySelectorAll('.blog-tag').forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+          gsap.to(this, {
+            scale: 1.1,
+            duration: 0.3
+          });
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+          gsap.to(this, {
+            scale: 1,
+            duration: 0.3
+          });
+        });
+      });
+      
+      // Animate recent posts on hover
+      document.querySelectorAll('.card-body .d-flex').forEach(post => {
+        post.addEventListener('mouseenter', function() {
+          gsap.to(this, {
+            x: 5,
+            duration: 0.3
+          });
+        });
+        
+        post.addEventListener('mouseleave', function() {
+          gsap.to(this, {
+            x: 0,
+            duration: 0.3
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html> 

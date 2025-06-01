@@ -27,6 +27,10 @@
   <title>Admission - Sungabha Awasiya Ma Vi</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -35,7 +39,7 @@
   <div id="header"></div>
 
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section class="hero-section" data-aos="fade-up" data-aos-duration="1000">
     <div class="container">
       <div class="text-center">
         <h1 class="display-4 fw-bold mb-4">Admission Information</h1>
@@ -45,12 +49,12 @@
   </section>
 
   <!-- Admission Process Section -->
-  <section class="py-5">
+  <section class="py-5" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-8">
           <h2 class="display-6 fw-bold mb-4">Admission Process</h2>
-          <div class="card mb-4">
+          <div class="card mb-4" data-aos="fade-up" data-aos-delay="100">
             <div class="card-body">
               <h3 class="h5 mb-3">Step 1: Submit Application</h3>
               <p>Complete and submit the online application form along with required documents.</p>
@@ -71,7 +75,7 @@
             </div>
           </div>
           
-          <div class="card mb-4">
+          <div class="card mb-4" data-aos="fade-up" data-aos-delay="200">
             <div class="card-body">
               <h3 class="h5 mb-3">Step 2: Entrance Test</h3>
               <p>Qualified candidates will be invited for an entrance test covering core subjects.</p>
@@ -92,7 +96,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card" data-aos="fade-up" data-aos-delay="300">
             <div class="card-body">
               <h3 class="h5 mb-3">Step 3: Interview</h3>
               <p>Selected students and parents will be called for an interview with school administration.</p>
@@ -100,7 +104,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4" data-aos="fade-left" data-aos-delay="200">
           <!-- Important Dates -->
           <div class="card mb-4">
             <div class="card-header bg-primary text-white">
@@ -129,7 +133,7 @@
           </div>
 
           <!-- Contact Info -->
-          <div class="card">
+          <div class="card" data-aos="fade-up" data-aos-delay="300">
             <div class="card-header bg-primary text-white">
               <h3 class="h5 mb-0">Need Help?</h3>
             </div>
@@ -157,32 +161,32 @@
   </section>
 
   <!-- Application Form Section -->
-  <section class="py-5 bg-light">
+  <section class="py-5 bg-light" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
       <h2 class="display-6 fw-bold mb-4 text-center">Apply Now</h2>
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <div class="card">
             <div class="card-body">
-              <form>
+              <form id="admissionForm">
                 <div class="row g-3">
-                  <div class="col-md-6">
+                  <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
                     <label for="firstName" class="form-label">First Name</label>
                     <input type="text" class="form-control" id="firstName" required>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
                     <label for="lastName" class="form-label">Last Name</label>
                     <input type="text" class="form-control" id="lastName" required>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" required>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
                     <label for="phone" class="form-label">Phone</label>
                     <input type="tel" class="form-control" id="phone" required>
                   </div>
-                  <div class="col-12">
+                  <div class="col-12" data-aos="fade-up" data-aos-delay="300">
                     <label for="grade" class="form-label">Applying for Grade</label>
                     <select class="form-select" id="grade" required>
                       <option value="">Choose...</option>
@@ -193,11 +197,11 @@
                       <option>Grade 5</option>
                     </select>
                   </div>
-                  <div class="col-12">
+                  <div class="col-12" data-aos="fade-up" data-aos-delay="400">
                     <label for="message" class="form-label">Additional Information</label>
                     <textarea class="form-control" id="message" rows="4"></textarea>
                   </div>
-                  <div class="col-12">
+                  <div class="col-12 text-center" data-aos="zoom-in" data-aos-delay="500">
                     <button type="submit" class="btn btn-primary">Submit Application</button>
                   </div>
                 </div>
@@ -214,9 +218,84 @@
 
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- GSAP Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Custom JavaScript -->
   <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+      
+      // Form animation with GSAP
+      const form = document.getElementById('admissionForm');
+      
+      if (form) {
+        // Animate form inputs on focus
+        const formInputs = form.querySelectorAll('input, select, textarea');
+        
+        formInputs.forEach(input => {
+          input.addEventListener('focus', function() {
+            gsap.to(this, {
+              scale: 1.02,
+              boxShadow: '0 0 10px rgba(13, 110, 253, 0.3)',
+              duration: 0.3
+            });
+          });
+          
+          input.addEventListener('blur', function() {
+            gsap.to(this, {
+              scale: 1,
+              boxShadow: 'none',
+              duration: 0.3
+            });
+          });
+        });
+        
+        // Form submission animation
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Animate button
+          const submitBtn = this.querySelector('button[type="submit"]');
+          
+          gsap.to(submitBtn, {
+            scale: 1.1,
+            duration: 0.2,
+            onComplete: () => {
+              gsap.to(submitBtn, {
+                scale: 1,
+                duration: 0.2
+              });
+              
+              // Show success message
+              setTimeout(() => {
+                submitBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i> Application Submitted';
+                submitBtn.classList.remove('btn-primary');
+                submitBtn.classList.add('btn-success');
+                
+                // Reset form after delay
+                setTimeout(() => {
+                  form.reset();
+                  submitBtn.innerHTML = 'Submit Application';
+                  submitBtn.classList.remove('btn-success');
+                  submitBtn.classList.add('btn-primary');
+                }, 3000);
+              }, 500);
+            }
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html> 

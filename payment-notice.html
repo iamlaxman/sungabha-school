@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="View payment information and fee structure at Sungabha Awasiya Ma Vi. Find details about tuition, admission, and other fees.">
-  <meta name="keywords" content="School Fees Nepal, Education Cost, School Payment">
+  <meta name="description" content="View payment notices and fee information for Sungabha Awasiya Ma Vi. Find details about tuition, exam fees, and payment deadlines.">
+  <meta name="keywords" content="School Fees Nepal, Payment Notice, School Payment">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo.png">
@@ -14,162 +14,162 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://iamlaxman.github.io/sungabha-school/payment-notice.html">
   <meta property="og:title" content="Payment Notice - Sungabha Awasiya Ma Vi">
-  <meta property="og:description" content="View payment information and fee structure at Sungabha Awasiya Ma Vi. Find details about tuition, admission, and other fees.">
+  <meta property="og:description" content="View payment notices and fee information for Sungabha Awasiya Ma Vi. Find details about tuition, exam fees, and payment deadlines.">
   <meta property="og:image" content="https://iamlaxman.github.io/sungabha-school/images/building.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://iamlaxman.github.io/sungabha-school/payment-notice.html">
   <meta property="twitter:title" content="Payment Notice - Sungabha Awasiya Ma Vi">
-  <meta property="twitter:description" content="View payment information and fee structure at Sungabha Awasiya Ma Vi. Find details about tuition, admission, and other fees.">
+  <meta property="twitter:description" content="View payment notices and fee information for Sungabha Awasiya Ma Vi. Find details about tuition, exam fees, and payment deadlines.">
   <meta property="twitter:image" content="https://iamlaxman.github.io/sungabha-school/images/building.jpg">
 
   <title>Payment Notice - Sungabha Awasiya Ma Vi</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .notice-card {
+      border-left: 4px solid var(--primary);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .notice-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .payment-method-card {
+      transition: all 0.3s ease;
+    }
+    
+    .payment-method-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .payment-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+    
+    .payment-method-card:hover .payment-icon {
+      transform: scale(1.2);
+    }
+    
+    .badge-important {
+      background-color: #dc3545;
+      color: white;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
   <!-- Header Component -->
   <div id="header"></div>
 
   <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="text-center">
-        <h1 class="display-4 fw-bold mb-4">Payment Notice</h1>
-        <p class="lead mb-4">Important information regarding fees, payment schedules, and procedures.</p>
+  <section class="hero-section bg-light" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold mb-4">Payment Notice</h1>
+          <p class="lead mb-4">Important information regarding fees, payment deadlines, and methods for the current academic session.</p>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=400&crop=entropy&fit=crop" alt="Payment Notice" class="img-fluid rounded shadow">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Current Notices Section -->
-  <section class="py-5">
+  <!-- Important Notices Section -->
+  <section class="py-5" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
-      <h2 class="display-6 fw-bold mb-4">Current Notices</h2>
+      <h2 class="display-6 fw-bold mb-4 text-center">Important Notices</h2>
       <div class="row g-4">
         <!-- Notice 1 -->
-        <div class="col-12">
-          <div class="card border-primary">
-            <div class="card-header bg-primary text-white">
-              <h3 class="h5 mb-0">Term 2 Fee Payment Deadline</h3>
-            </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card notice-card h-100">
             <div class="card-body">
-              <div class="mb-3">
-                <span class="badge bg-danger">Important</span>
-                <span class="text-muted ms-2">Due Date: March 31, 2024</span>
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <h3 class="h5 card-title">Term 2 Fee Payment</h3>
+                <span class="badge badge-important">Deadline: March 31, 2024</span>
               </div>
-              <p class="card-text">Please note that the deadline for Term 2 fee payment is approaching. Parents are requested to clear all dues before the deadline to avoid late payment charges.</p>
-              <a href="#" class="btn btn-primary">Pay Online</a>
+              <p class="card-text">The second term fee payment deadline is approaching. Please ensure timely payment to avoid late fees.</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Grades 1-5: Rs. 15,000</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Grades 6-8: Rs. 18,000</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Grades 9-10: Rs. 20,000</li>
+                <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Grades 11-12: Rs. 25,000</li>
+              </ul>
             </div>
           </div>
         </div>
-
+        
         <!-- Notice 2 -->
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header bg-info text-white">
-              <h3 class="h5 mb-0">Exam Fee Notice</h3>
-            </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card notice-card h-100">
             <div class="card-body">
-              <div class="mb-3">
-                <span class="badge bg-info">Exam Fee</span>
-                <span class="text-muted ms-2">Due Date: April 15, 2024</span>
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <h3 class="h5 card-title">Exam Fee Notice</h3>
+                <span class="badge bg-primary">Deadline: April 15, 2024</span>
               </div>
-              <p class="card-text">Final examination fees for the academic year 2023-24 are now due. Please ensure timely payment to avoid any inconvenience.</p>
-              <a href="#" class="btn btn-outline-primary">View Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Fee Structure Section -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="display-6 fw-bold mb-4">Fee Structure 2023-24</h2>
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-              <h3 class="h5 mb-0">Primary Level</h3>
-            </div>
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Admission Fee</span>
-                  <strong>Rs. 25,000</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Monthly Fee</span>
-                  <strong>Rs. 5,000</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Computer Lab</span>
-                  <strong>Rs. 1,500</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Library Fee</span>
-                  <strong>Rs. 1,000</strong>
-                </li>
+              <p class="card-text">The final examination fees for the academic year 2023-2024 must be paid by April 15, 2024.</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Grades 1-5: Rs. 1,500</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Grades 6-8: Rs. 2,000</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Grades 9-10: Rs. 2,500</li>
+                <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Grades 11-12: Rs. 3,000</li>
               </ul>
             </div>
           </div>
         </div>
-
-        <div class="col-lg-4">
-          <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-              <h3 class="h5 mb-0">Middle Level</h3>
-            </div>
+        
+        <!-- Notice 3 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card notice-card h-100">
             <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Admission Fee</span>
-                  <strong>Rs. 30,000</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Monthly Fee</span>
-                  <strong>Rs. 6,000</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Computer Lab</span>
-                  <strong>Rs. 2,000</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Library Fee</span>
-                  <strong>Rs. 1,500</strong>
-                </li>
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <h3 class="h5 card-title">Scholarship Application</h3>
+                <span class="badge bg-success">New</span>
+              </div>
+              <p class="card-text">Applications for merit-based and need-based scholarships are now open for the upcoming academic year.</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Application Deadline: April 30, 2024</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Required Documents: Academic Records, Income Certificate</li>
+                <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Contact the Administrative Office for more details</li>
               </ul>
             </div>
           </div>
         </div>
-
-        <div class="col-lg-4">
-          <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-              <h3 class="h5 mb-0">Secondary Level</h3>
-            </div>
+        
+        <!-- Notice 4 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card notice-card h-100">
             <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Admission Fee</span>
-                  <strong>Rs. 35,000</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Monthly Fee</span>
-                  <strong>Rs. 7,000</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Computer Lab</span>
-                  <strong>Rs. 2,500</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Library Fee</span>
-                  <strong>Rs. 2,000</strong>
-                </li>
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <h3 class="h5 card-title">Late Payment Policy</h3>
+                <span class="badge bg-warning text-dark">Important</span>
+              </div>
+              <p class="card-text">Please note the following regarding late payments:</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Late fee of 5% applies after the deadline</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Additional 2% per week thereafter</li>
+                <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Parents facing financial difficulties should contact the administrative office</li>
               </ul>
             </div>
           </div>
@@ -179,53 +179,49 @@
   </section>
 
   <!-- Payment Methods Section -->
-  <section class="py-5">
+  <section class="py-5 bg-light" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
-      <h2 class="display-6 fw-bold mb-4">Payment Methods</h2>
+      <h2 class="display-6 fw-bold mb-4 text-center">Payment Methods</h2>
       <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="h5 mb-3">Online Payment</h3>
-              <p>Pay securely through our online payment portal using:</p>
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <i class="bi bi-credit-card text-primary me-2"></i>
-                  Credit/Debit Cards
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-phone text-primary me-2"></i>
-                  Mobile Banking
-                </li>
-                <li>
-                  <i class="bi bi-bank text-primary me-2"></i>
-                  Internet Banking
-                </li>
-              </ul>
-              <a href="#" class="btn btn-primary mt-3">Pay Online</a>
+        <!-- Cash Payment -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100 payment-method-card">
+            <div class="card-body text-center p-4">
+              <i class="bi bi-cash payment-icon"></i>
+              <h3 class="h5 mb-3">Cash Payment</h3>
+              <p class="text-muted mb-0">Visit our administrative office during working hours (9:00 AM - 3:00 PM) to make cash payments.</p>
             </div>
           </div>
         </div>
-
-        <div class="col-md-6">
-          <div class="card h-100">
-            <div class="card-body">
+        
+        <!-- Bank Transfer -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 payment-method-card">
+            <div class="card-body text-center p-4">
+              <i class="bi bi-bank payment-icon"></i>
               <h3 class="h5 mb-3">Bank Transfer</h3>
-              <p>Direct bank transfer to our account:</p>
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <strong>Bank Name:</strong> Nepal Bank Ltd.
-                </li>
-                <li class="mb-2">
-                  <strong>Account Name:</strong> Sungabha Awasiya Ma Vi
-                </li>
-                <li class="mb-2">
-                  <strong>Account Number:</strong> 0123456789
-                </li>
-                <li>
-                  <strong>Branch:</strong> Main Branch, Kathmandu
-                </li>
+              <p class="text-muted mb-0">Transfer fees directly to our bank account:</p>
+              <ul class="list-unstyled text-start mt-3">
+                <li class="mb-2"><strong>Bank:</strong> Nepal Bank Ltd.</li>
+                <li class="mb-2"><strong>Account Name:</strong> Sungabha Awasiya Ma Vi</li>
+                <li><strong>Account No:</strong> 01234567890123</li>
               </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Online Payment -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100 payment-method-card">
+            <div class="card-body text-center p-4">
+              <i class="bi bi-credit-card payment-icon"></i>
+              <h3 class="h5 mb-3">Online Payment</h3>
+              <p class="text-muted mb-0">Pay securely online through our school portal or using the following digital wallets:</p>
+              <div class="d-flex justify-content-center gap-3 mt-3">
+                <span class="badge bg-primary p-2">eSewa</span>
+                <span class="badge bg-primary p-2">Khalti</span>
+                <span class="badge bg-primary p-2">ConnectIPS</span>
+              </div>
             </div>
           </div>
         </div>
@@ -233,31 +229,99 @@
     </div>
   </section>
 
-  <!-- Payment Guidelines -->
-  <section class="py-5 bg-light">
+  <!-- Fee Structure Section -->
+  <section class="py-5" data-aos="fade-up" data-aos-duration="800">
+    <div class="container">
+      <h2 class="display-6 fw-bold mb-4 text-center">Fee Structure 2023-2024</h2>
+      <div class="table-responsive" data-aos="fade-up" data-aos-delay="100">
+        <table class="table table-striped table-hover">
+          <thead class="table-primary">
+            <tr>
+              <th>Grade Level</th>
+              <th>Admission Fee</th>
+              <th>Annual Fee</th>
+              <th>Term Fee (3 Terms)</th>
+              <th>Exam Fee</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PlayGroup - KG</td>
+              <td>Rs. 10,000</td>
+              <td>Rs. 15,000</td>
+              <td>Rs. 30,000</td>
+              <td>Rs. 1,000</td>
+              <td>Rs. 56,000</td>
+            </tr>
+            <tr>
+              <td>Grades 1-5</td>
+              <td>Rs. 15,000</td>
+              <td>Rs. 20,000</td>
+              <td>Rs. 45,000</td>
+              <td>Rs. 1,500</td>
+              <td>Rs. 81,500</td>
+            </tr>
+            <tr>
+              <td>Grades 6-8</td>
+              <td>Rs. 20,000</td>
+              <td>Rs. 25,000</td>
+              <td>Rs. 54,000</td>
+              <td>Rs. 2,000</td>
+              <td>Rs. 101,000</td>
+            </tr>
+            <tr>
+              <td>Grades 9-10</td>
+              <td>Rs. 25,000</td>
+              <td>Rs. 30,000</td>
+              <td>Rs. 60,000</td>
+              <td>Rs. 2,500</td>
+              <td>Rs. 117,500</td>
+            </tr>
+            <tr>
+              <td>Grades 11-12 (Science)</td>
+              <td>Rs. 30,000</td>
+              <td>Rs. 35,000</td>
+              <td>Rs. 75,000</td>
+              <td>Rs. 3,000</td>
+              <td>Rs. 143,000</td>
+            </tr>
+            <tr>
+              <td>Grades 11-12 (Management)</td>
+              <td>Rs. 30,000</td>
+              <td>Rs. 32,000</td>
+              <td>Rs. 72,000</td>
+              <td>Rs. 3,000</td>
+              <td>Rs. 137,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="200">
+        <a href="#" class="btn btn-primary">
+          <i class="bi bi-download me-2"></i>Download Complete Fee Structure
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-5 bg-light" data-aos="fade-up" data-aos-duration="800">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="card">
-            <div class="card-body">
-              <h2 class="h4 mb-4">Payment Guidelines</h2>
-              <div class="mb-4">
-                <h3 class="h6 fw-bold">1. Payment Schedule</h3>
-                <p>Fees must be paid within the first week of each month.</p>
-              </div>
-              <div class="mb-4">
-                <h3 class="h6 fw-bold">2. Late Payment</h3>
-                <p>A late fee of 5% will be charged after the due date.</p>
-              </div>
-              <div class="mb-4">
-                <h3 class="h6 fw-bold">3. Payment Verification</h3>
-                <p>Please keep payment receipts for future reference.</p>
-              </div>
-              <div>
-                <h3 class="h6 fw-bold">4. Financial Assistance</h3>
-                <p class="mb-0">Contact the accounts department for scholarship and financial aid information.</p>
-              </div>
-            </div>
+        <div class="col-lg-8 text-center">
+          <h2 class="h3 fw-bold mb-4">Payment Inquiries</h2>
+          <p class="mb-4">For any questions regarding fees, payments, or financial assistance, please contact our accounts department.</p>
+          <div class="d-flex justify-content-center flex-wrap gap-3">
+            <a href="tel:+97721540892" class="btn btn-outline-primary" data-aos="zoom-in" data-aos-delay="100">
+              <i class="bi bi-telephone me-2"></i>+977-21-540892
+            </a>
+            <a href="mailto:accounts@sungabha.edu.np" class="btn btn-outline-primary" data-aos="zoom-in" data-aos-delay="200">
+              <i class="bi bi-envelope me-2"></i>accounts@sungabha.edu.np
+            </a>
+            <a href="contact.html" class="btn btn-outline-primary" data-aos="zoom-in" data-aos-delay="300">
+              <i class="bi bi-chat-dots me-2"></i>Contact Form
+            </a>
           </div>
         </div>
       </div>
@@ -269,9 +333,52 @@
 
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- GSAP Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Custom JavaScript -->
   <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+      
+      // GSAP animations for notice cards
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Animate table rows on hover
+      document.querySelectorAll('tbody tr').forEach(row => {
+        row.addEventListener('mouseenter', function() {
+          gsap.to(this, {
+            backgroundColor: 'rgba(13, 110, 253, 0.05)',
+            duration: 0.3
+          });
+        });
+        
+        row.addEventListener('mouseleave', function() {
+          gsap.to(this, {
+            backgroundColor: 'transparent',
+            duration: 0.3
+          });
+        });
+      });
+      
+      // Highlight important badges
+      gsap.to('.badge-important', {
+        scale: 1.1,
+        duration: 0.5,
+        repeat: -1,
+        yoyo: true
+      });
+    });
+  </script>
 </body>
 </html> 

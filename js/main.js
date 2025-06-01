@@ -1,3 +1,8 @@
+/**
+ * Sungabha School Website Main JavaScript
+ * Handles common functionality across the site
+ */
+
 // Debug flag - set to true to see detailed path resolution logs
 const DEBUG = true;
 
@@ -78,77 +83,117 @@ function fixComponentPaths(element) {
 }
 
 // Function to load HTML components with improved error handling
-async function loadComponent(elementId, componentPath) {
+async function loadComponent(componentName, selector) {
+    const targetElement = document.querySelector(selector);
+    
+    if (!targetElement) {
+        console.warn(`Target element for ${componentName} not found: ${selector}`);
+        return;
+    }
+    
     try {
         // Show loading state
-        const element = document.getElementById(elementId);
-        if (!element) {
-            throw new Error(`Element with id '${elementId}' not found`);
-        }
-        
-        element.innerHTML = `
+        targetElement.innerHTML = `
             <div class="text-center py-3">
                 <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Loading ${elementId}...</span>
+                    <span class="visually-hidden">Loading ${componentName}...</span>
                 </div>
             </div>`;
         
         // Resolve the correct path based on current environment
-        const resolvedPath = resolveComponentPath(componentPath);
+        const resolvedPath = resolveComponentPath(`components/${componentName}.html`);
         
         if (DEBUG) {
-            console.log(`Fetching component: ${elementId}`, {
-                originalPath: componentPath,
+            console.log(`Fetching component: ${componentName}`, {
+                originalPath: `components/${componentName}.html`,
                 resolvedPath: resolvedPath,
                 fullURL: window.location.origin + resolvedPath
             });
         }
         
-        const response = await fetch(resolvedPath);
+        // Use fetch with cache busting to prevent caching issues
+        const cacheBuster = `?v=${new Date().getTime()}`;
+        const response = await fetch(resolvedPath + cacheBuster, { 
+            cache: 'no-store',
+            headers: {
+                'Cache-Control': 'no-cache',
+                'Pragma': 'no-cache'
+            }
+        });
         
         if (!response.ok) {
-            throw new Error(`Failed to load ${resolvedPath}: ${response.status} ${response.statusText}`);
+            throw new Error(`Failed to load ${componentName} component: ${response.status}`);
         }
         
         const html = await response.text();
-        element.innerHTML = html;
         
-        // Initialize Bootstrap components after header is loaded
-        if (elementId === 'header') {
-            initializeBootstrapComponents();
+        // Check if HTML content is valid
+        if (!html || html.trim() === '') {
+            throw new Error(`Empty content received for ${componentName} component`);
         }
-
+        
+        targetElement.innerHTML = html;
+        
         // Fix paths in the loaded component
-        fixComponentPaths(element);
+        fixComponentPaths(targetElement);
         
-    } catch (error) {
-        console.error(`Error loading component ${componentPath}:`, error);
-        // Show a minimal fallback for critical navigation
-        const element = document.getElementById(elementId);
-        if (!element) return;
+        // Dispatch event when component is loaded
+        const event = new CustomEvent('componentLoaded', { 
+            detail: { componentName: componentName } 
+        });
+        document.dispatchEvent(event);
         
-        const baseUrl = getBaseUrl();
+        // Execute component-specific scripts if they exist
+        const scripts = targetElement.querySelectorAll('script');
+        scripts.forEach(script => {
+            try {
+                const newScript = document.createElement('script');
+                Array.from(script.attributes).forEach(attr => {
+                    newScript.setAttribute(attr.name, attr.value);
+                });
+                newScript.appendChild(document.createTextNode(script.innerHTML));
+                script.parentNode.replaceChild(newScript, script);
+            } catch (error) {
+                console.error(`Error executing script in ${componentName} component:`, error);
+            }
+        });
         
-        if (elementId === 'header') {
-            element.innerHTML = `
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container">
-                        <a class="navbar-brand" href="${baseUrl}index.html">Sungabha</a>
-                        <div class="d-flex">
-                            <a class="btn btn-primary me-2" href="${baseUrl}index.html">Home</a>
-                            <a class="btn btn-outline-primary" href="${baseUrl}contact.html">Contact</a>
-                        </div>
-                    </div>
-                </nav>`;
-        } else if (elementId === 'footer') {
-            element.innerHTML = `
-                <footer class="py-3 bg-light">
-                    <div class="container text-center">
-                        <p class="mb-0">© 2025 Sungabha Awasiya Ma Vi</p>
-                        <a href="${baseUrl}index.html" class="text-decoration-none">Back to Home</a>
-                    </div>
-                </footer>`;
+        // Initialize specific components after loading
+        if (componentName === 'header') {
+            // Initialize Bootstrap components
+            initializeBootstrapComponents();
+            
+            // Set active nav link
+            setActiveNavLink();
+            
+            // Initialize navbar animations
+            initializeNavbarAnimations();
         }
+        
+        if (componentName === 'footer') {
+            // Initialize footer animations
+            initializeFooterAnimations();
+        }
+        
+        console.log(`${componentName} component loaded successfully`);
+    } catch (error) {
+        console.error(`Error loading ${componentName} component:`, error);
+        
+        // Show error message
+        targetElement.innerHTML = `
+            <div class="alert alert-danger">
+                Failed to load ${componentName} component. 
+                <button class="btn btn-sm btn-outline-danger ms-2" onclick="loadComponent('${componentName}', '${selector}')">
+                    Try Again
+                </button>
+            </div>`;
+        
+        // Retry loading after a delay
+        setTimeout(() => {
+            if (targetElement.querySelector('.alert')) {
+                loadComponent(componentName, selector);
+            }
+        }, 3000);
     }
 }
 
@@ -217,8 +262,119 @@ function initializeCounters() {
     });
 }
 
+// Set active nav link based on current page
+function setActiveNavLink() {
+    const currentLocation = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    let activeSet = false;
+    
+    // Clear all active classes first
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // First check for exact matches
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (linkPath && currentLocation.endsWith(linkPath)) {
+            link.classList.add('active');
+            activeSet = true;
+        }
+    });
+    
+    // If no exact match, check for index.html or root path
+    if (!activeSet && (currentLocation.endsWith('/') || currentLocation.endsWith('/index.html'))) {
+        const homeLink = document.querySelector('.nav-link[href="index.html"]');
+        if (homeLink) {
+            homeLink.classList.add('active');
+            activeSet = true;
+        }
+    }
+    
+    // If still no match, check for partial matches
+    if (!activeSet) {
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+            if (linkPath && linkPath !== 'index.html' && linkPath.length > 1) {
+                if (currentLocation.includes(linkPath)) {
+                    link.classList.add('active');
+                }
+            }
+        });
+    }
+}
+
+// Initialize navbar animations
+function initializeNavbarAnimations() {
+    // Add scrolled class to navbar when scrolling
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        function checkScroll() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+        
+        // Initial check in case page is loaded scrolled down
+        checkScroll();
+        window.addEventListener('scroll', checkScroll);
+        
+        // Add animation to navbar items on load with staggered timing
+        const navItems = document.querySelectorAll('.navbar-nav > .nav-item');
+        navItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('animated');
+            }, 100 * (index + 1));
+        });
+    }
+}
+
+// Initialize footer animations
+function initializeFooterAnimations() {
+    // Footer fade-in animation on scroll
+    const footerFadeElements = document.querySelectorAll('.footer-fade');
+    
+    const footerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                footerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    footerFadeElements.forEach(element => {
+        footerObserver.observe(element);
+    });
+    
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('backToTop');
+    if (backToTopButton) {
+        function toggleBackToTopButton() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        }
+        
+        // Initial check in case page is loaded scrolled down
+        toggleBackToTopButton();
+        window.addEventListener('scroll', toggleBackToTopButton);
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
 // Initialize components when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     // Log environment information
     if (DEBUG) {
         console.log('=== Environment Information ===');
@@ -230,18 +386,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Load header and footer components
-    loadComponent('header', 'components/header.html');
-    loadComponent('footer', 'components/footer.html');
-
-    // Initialize other features
+    loadComponent('header', '#header');
+    loadComponent('footer', '#footer');
+    
+    // Initialize animations
     initializeScrollAnimations();
     initializeCounters();
+    
+    // Add event listener for component loading completion
+    document.addEventListener('componentLoaded', function(e) {
+        console.log(`Component loaded: ${e.detail.componentName}`);
+        
+        // Check if all components are loaded
+        if (document.querySelector('#header')?.innerHTML && document.querySelector('#footer')?.innerHTML) {
+            console.log('All components loaded successfully');
+        }
+    });
+    
+    // Fallback check to ensure components are loaded
+    setTimeout(() => {
+        // Check header
+        const headerElement = document.getElementById('header');
+        if (headerElement && (!headerElement.innerHTML || headerElement.innerHTML.includes('Failed to load'))) {
+            console.log('Header failed to load, trying again...');
+            loadComponent('header', '#header');
+        }
+        
+        // Check footer
+        const footerElement = document.getElementById('footer');
+        if (footerElement && (!footerElement.innerHTML || footerElement.innerHTML.includes('Failed to load'))) {
+            console.log('Footer failed to load, trying again...');
+            loadComponent('footer', '#footer');
+        }
+    }, 2000);
 });
 
-// Add to main.js
+// Handle errors gracefully
 window.addEventListener('error', function(e) {
-  console.error('Global error:', e.error);
-  // You could also send this to an error tracking service
+    console.error('JavaScript error:', e.message);
+    // Prevent the error from breaking the entire site
+    return true;
 });
 
 // Update service worker registration to use correct path
@@ -252,4 +436,37 @@ if ('serviceWorker' in navigator) {
             .then(reg => console.log('Service Worker registered'))
             .catch(err => console.error('Service Worker error:', err));
     });
+}
+
+/**
+ * Format date in Nepali format
+ * @param {Date} date - Date object to format
+ * @returns {string} Formatted date string
+ */
+function formatNepaliDate(date) {
+    // Implement Nepali date conversion logic if needed
+    return date.toLocaleDateString('ne-NP');
+}
+
+/**
+ * Detect mobile devices
+ * @returns {boolean} True if the user is on a mobile device
+ */
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+/**
+ * Check if an element is in viewport
+ * @param {HTMLElement} el - Element to check
+ * @returns {boolean} True if element is in viewport
+ */
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
 } 

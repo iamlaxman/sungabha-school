@@ -1,0 +1,114 @@
+/**
+ * Sungabha School - CSS Variables
+ * Global variables for consistent styling across the website
+ */
+
+:root {
+  /* School Theme Colors */
+  --school-navy: #0a2463;
+  --school-navy-dark: #051438;
+  --school-navy-light: #1a3473;
+  --school-gold: #ffc107;
+  --school-gold-dark: #e6ad00;
+  --school-gold-light: #ffe69c;
+  --school-white: #ffffff;
+  --school-light-gray: #f8f9fa;
+  --school-dark: #212529;
+  
+  /* Functional Colors */
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-light: rgba(255, 255, 255, 0.85);
+  --text-light-muted: rgba(255, 255, 255, 0.7);
+  
+  /* Spacing */
+  --section-padding: 5rem 0;
+  --section-padding-sm: 3rem 0;
+  
+  /* Animation */
+  --transition-speed: 0.3s;
+  --transition-function: ease;
+  
+  /* Effects */
+  --box-shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.08);
+  --box-shadow-md: 0 5px 20px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --box-shadow-gold: 0 5px 15px rgba(255, 193, 7, 0.3);
+  
+  /* Border Radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-pill: 50rem;
+}
+
+/* Utility Classes */
+.text-gold {
+  color: var(--school-gold) !important;
+}
+
+.text-navy {
+  color: var(--school-navy) !important;
+}
+
+.bg-navy {
+  background-color: var(--school-navy) !important;
+}
+
+.bg-gold {
+  background-color: var(--school-gold) !important;
+}
+
+.btn-navy {
+  background-color: var(--school-navy);
+  border-color: var(--school-navy);
+  color: var(--school-white);
+  transition: all var(--transition-speed) var(--transition-function);
+}
+
+.btn-navy:hover,
+.btn-navy:focus {
+  background-color: var(--school-navy-dark);
+  border-color: var(--school-navy-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-md);
+}
+
+.btn-gold {
+  background-color: var(--school-gold);
+  border-color: var(--school-gold);
+  color: var(--school-navy);
+  font-weight: 600;
+  transition: all var(--transition-speed) var(--transition-function);
+}
+
+.btn-gold:hover,
+.btn-gold:focus {
+  background-color: var(--school-gold-dark);
+  border-color: var(--school-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-gold);
+}
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--school-gold);
+  outline-offset: 2px;
+} 

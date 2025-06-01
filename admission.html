@@ -114,19 +114,19 @@
               <ul class="list-unstyled">
                 <li class="mb-3">
                   <strong>Application Deadline:</strong><br>
-                  March 31, 2024
+                  March 31, 2025
                 </li>
                 <li class="mb-3">
                   <strong>Entrance Test:</strong><br>
-                  April 15, 2024
+                  April 15, 2025
                 </li>
                 <li class="mb-3">
                   <strong>Interview Period:</strong><br>
-                  April 20-25, 2024
+                  April 20-25, 2025
                 </li>
                 <li>
                   <strong>Results:</strong><br>
-                  May 1, 2024
+                  May 1, 2025
                 </li>
               </ul>
             </div>
@@ -168,39 +168,56 @@
         <div class="col-lg-8">
           <div class="card">
             <div class="card-body">
-              <form id="admissionForm">
+              <form id="admissionForm" action="https://formsubmit.co/admission@sungabha.edu.np" method="POST">
                 <div class="row g-3">
                   <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
                     <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="firstName" required>
+                    <input type="text" name="firstName" class="form-control" id="firstName" required>
                   </div>
                   <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
                     <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" required>
+                    <input type="text" name="lastName" class="form-control" id="lastName" required>
                   </div>
                   <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <input type="email" name="email" class="form-control" id="email" required>
                   </div>
                   <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="tel" class="form-control" id="phone" required>
+                    <input type="tel" name="phone" class="form-control" id="phone" required>
                   </div>
                   <div class="col-12" data-aos="fade-up" data-aos-delay="300">
                     <label for="grade" class="form-label">Applying for Grade</label>
-                    <select class="form-select" id="grade" required>
+                    <select class="form-select" name="grade" id="grade" required>
                       <option value="">Choose...</option>
                       <option>Grade 1</option>
                       <option>Grade 2</option>
                       <option>Grade 3</option>
                       <option>Grade 4</option>
                       <option>Grade 5</option>
+                      <option>Grade 6</option>
+                      <option>Grade 7</option>
+                      <option>Grade 8</option>
+                      <option>Grade 9</option>
+                      <option>Grade 11 (Science)</option>
+                      <option>Grade 11 (Management)</option>
+                      <option>Grade 11 (Humanities)</option>
+                      <option>Grade 12 (Science)</option>
+                      <option>Grade 12 (Management)</option>
+                      <option>Grade 12 (Humanities)</option>
                     </select>
                   </div>
                   <div class="col-12" data-aos="fade-up" data-aos-delay="400">
                     <label for="message" class="form-label">Additional Information</label>
-                    <textarea class="form-control" id="message" rows="4"></textarea>
+                    <textarea class="form-control" name="message" id="message" rows="4"></textarea>
                   </div>
+                  
+                  <!-- FormSubmit Hidden Fields -->
+                  <input type="hidden" name="_subject" value="New Admission Application from Sungabha School Website">
+                  <input type="hidden" name="_template" value="table">
+                  <input type="hidden" name="_captcha" value="true">
+                  <input type="hidden" name="_next" value="https://iamlaxman.github.io/sungabha-school/thank-you.html">
+                  
                   <div class="col-12 text-center" data-aos="zoom-in" data-aos-delay="500">
                     <button type="submit" class="btn btn-primary">Submit Application</button>
                   </div>
@@ -228,6 +245,10 @@
   <script src="js/animations.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Load components
+      loadComponent('header', '#header');
+      loadComponent('footer', '#footer');
+      
       // Initialize AOS
       AOS.init({
         duration: 800,
@@ -258,40 +279,6 @@
               boxShadow: 'none',
               duration: 0.3
             });
-          });
-        });
-        
-        // Form submission animation
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          // Animate button
-          const submitBtn = this.querySelector('button[type="submit"]');
-          
-          gsap.to(submitBtn, {
-            scale: 1.1,
-            duration: 0.2,
-            onComplete: () => {
-              gsap.to(submitBtn, {
-                scale: 1,
-                duration: 0.2
-              });
-              
-              // Show success message
-              setTimeout(() => {
-                submitBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i> Application Submitted';
-                submitBtn.classList.remove('btn-primary');
-                submitBtn.classList.add('btn-success');
-                
-                // Reset form after delay
-                setTimeout(() => {
-                  form.reset();
-                  submitBtn.innerHTML = 'Submit Application';
-                  submitBtn.classList.remove('btn-success');
-                  submitBtn.classList.add('btn-primary');
-                }, 3000);
-              }, 500);
-            }
           });
         });
       }
